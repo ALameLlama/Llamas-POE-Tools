@@ -15,8 +15,8 @@ class SteelInfused extends Component
 
     public function mount()
     {
-        $this->owned = Storage::disk('local')->get($this->name) ?? false;
-        $this->emit("{$this->parent}Recipe", [$this->name => $this->owned]);
+        $this->owned = Storage::disk('local')->get("{$this->parent}_{$this->name}") ?? false;
+        $this->updateParent();
     }
 
     public function toggle()
@@ -24,8 +24,13 @@ class SteelInfused extends Component
         $this->owned = abs($this->owned-=1);
 
         // $this->emitTo('base-recipe', 'refresh');
-        $this->emit("{$this->parent}Recipe", [$this->name => $this->owned]);
-        Storage::disk('local')->put($this->name, $this->owned);
+        $this->updateParent();
+        Storage::disk('local')->put("{$this->parent}_{$this->name}", $this->owned);
+    }
+
+    private function updateParent()
+    {
+        $this->emitUp("{$this->parent}Recipe", [$this->name => $this->owned]);
     }
 
     public function render()

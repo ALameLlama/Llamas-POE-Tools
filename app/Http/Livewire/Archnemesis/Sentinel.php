@@ -15,16 +15,22 @@ class Sentinel extends Component
 
     public function mount()
     {
-        $this->owned = Storage::disk('local')->get($this->name) ?? false;
-        $this->emit("{$this->parent}Recipe", [$this->name => $this->owned]);
+        $this->owned = Storage::disk('local')->get("{$this->parent}_{$this->name}") ?? false;
+        $this->updateParent();
     }
 
     public function toggle()
     {
         $this->owned = abs($this->owned-=1);
 
-        $this->emit("{$this->parent}Recipe", [$this->name => $this->owned]);
-        Storage::disk('local')->put($this->name, $this->owned);
+        // $this->emitTo('base-recipe', 'refresh');
+        $this->updateParent();
+        Storage::disk('local')->put("{$this->parent}_{$this->name}", $this->owned);
+    }
+
+    private function updateParent()
+    {
+        $this->emitUp("{$this->parent}Recipe", [$this->name => $this->owned]);
     }
 
     public function render()

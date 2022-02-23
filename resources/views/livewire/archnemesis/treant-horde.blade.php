@@ -16,6 +16,16 @@
             </div>
         </div>
     </div>
+
+    @foreach($childRecipes as $key => $value)
+        <div>
+            <div>
+                {{ $key }}
+                {{ $value }}
+            </div>
+        </div>
+    @endforeach
+    {{ $childOwned }}
     @livewire('archnemesis.toxic', ['parent' => $parent])
     @livewire('archnemesis.steel-infused', ['parent' => $parent])
     @livewire('archnemesis.sentinel', ['parent' => $parent])
