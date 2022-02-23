@@ -20,6 +20,8 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        @livewireStyles
     </head>
     <body class="h-full antialiased bg-zinc-50 dark:bg-zinc-800 transition-colors duration-300">
         <div x-data="{ sidebarOpen: false }" class="min-h-full">
@@ -75,7 +77,7 @@
                         </div>
                         <nav class="mt-5 px-2 space-y-1">
                             <!-- Current: "bg-zinc-900 text-white", Default: "text-gray-300 hover:bg-zinc-700 hover:text-white" -->
-                            <a href="#" class="{{ Route::is('dashboard') ? 'bg-zinc-900 text-white dark:bg-zinc-700' : 'text-gray-300 hover:bg-zinc-700 dark:hover:bg-zinc-500 hover:text-white' }} group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                            <a href="{{ route('dashboard') }}" class="{{ Route::is('dashboard') ? 'bg-zinc-900 text-white dark:bg-zinc-700' : 'text-gray-300 hover:bg-zinc-700 dark:hover:bg-zinc-500 hover:text-white' }} group flex items-center px-2 py-2 text-base font-medium rounded-md">
                                 <!-- Heroicon name: outline/home -->
                                 <!-- Current: "text-gray-300", Default: "text-gray-400 group-hover:text-gray-300" -->
                                 <svg class="{{ Route::is('dashboard') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -84,28 +86,22 @@
                                 Dashboard
                             </a>
 
-                            <a href="#" class="{{ Route::is('project1') ? 'bg-zinc-900 text-white dark:bg-zinc-700' : 'text-gray-300 hover:bg-zinc-700 dark:hover:bg-zinc-500 hover:text-white' }} group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                            <a href="{{ route('archnemesis-recipe-tracker') }}" class="{{ Route::is('archnemesis-recipe-tracker') ? 'bg-zinc-900 text-white dark:bg-zinc-700' : 'text-gray-300 hover:bg-zinc-700 dark:hover:bg-zinc-500 hover:text-white' }} group flex items-center px-2 py-2 text-base font-medium rounded-md">
                                 <!-- Heroicon name: outline/users -->
-                                <svg class="{{ Route::is('project1') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                <svg class="{{ Route::is('archnemesis-recipe-tracker') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                 </svg>
-                                Project 1
-                            </a>
-
-                            <a href="#" class="{{ Route::is('project2') ? 'bg-zinc-900 text-white dark:bg-zinc-700' : 'text-gray-300 hover:bg-zinc-700 dark:hover:bg-zinc-500 hover:text-white' }} group flex items-center px-2 py-2 text-base font-medium rounded-md">
-                                <!-- Heroicon name: outline/users -->
-                                <svg class="{{ Route::is('project2') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                                </svg>
-                                Project 2
+                                Archnemesis Recipe Tracker
                             </a>
                         </nav>
                     </div>
+                    @if (Route::has('login'))
                     <x-form mt="0" method="POST" action="{{ route('logout') }}">
                         <x-button class="rounded-none">
                             Log Out
                         </x-button>
                     </x-form>
+                    @endif
                 </div>
 
                 <div class="flex-shrink-0 w-14">
@@ -131,28 +127,15 @@
                                 Dashboard
                             </a>
 
-                            <a href="#" class="{{ Route::is('project1') ? 'bg-zinc-900 text-white dark:bg-zinc-700' : 'text-gray-300 hover:bg-zinc-700 dark:hover:bg-zinc-500 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                            <a href="{{ route('archnemesis-recipe-tracker') }}" class="{{ Route::is('archnemesis-recipe-tracker') ? 'bg-zinc-900 text-white dark:bg-zinc-700' : 'text-gray-300 hover:bg-zinc-700 dark:hover:bg-zinc-500 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                 <!-- Heroicon name: outline/users -->
-                                <svg class="{{ Route::is('project1') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                <svg class="{{ Route::is('archnemesis-recipe-tracker') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                 </svg>
-                                Project 1
-                            </a>
-
-                            <a href="#" class="{{ Route::is('project2') ? 'bg-zinc-900 text-white dark:bg-zinc-700' : 'text-gray-300 hover:bg-zinc-700 dark:hover:bg-zinc-500 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
-                                <!-- Heroicon name: outline/users -->
-                                <svg class="{{ Route::is('project2') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                                </svg>
-                                Project 2
+                                Archnemesis Recipe Tracker
                             </a>
                         </nav>
                     </div>
-                    <x-form mt="0" method="POST" action="{{ route('logout') }}">
-                        <x-button class="rounded-none">
-                            Log Out
-                        </x-button>
-                    </x-form>
                 </div>
             </div>
             <div class="md:pl-64 flex flex-col flex-1 h-screen">
@@ -187,5 +170,7 @@
                 </main>
             </div>
         </div>
+
+        @livewireScripts
     </body>
 </html>
