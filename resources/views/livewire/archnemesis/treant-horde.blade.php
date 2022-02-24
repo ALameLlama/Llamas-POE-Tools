@@ -1,5 +1,5 @@
 <div x-data={show:true}>
-    <div class="divide-y divide-gray-200 w-36 {{ $owned ? 'bg-green-400 dark:bg-green-600' : ($childOwned ? 'bg-yellow-400 dark:bg-yellow-600' : 'bg-red-400 dark:bg-red-500')}}">
+    <div class="divide-y divide-gray-200 w-48 {{ $owned ? 'bg-green-400 dark:bg-green-600' : ($childOwned ? 'bg-yellow-400 dark:bg-yellow-600' : 'bg-red-400 dark:bg-red-500')}}">
         <div class="relative flex items-center justify-between mr-2 ml-2 h-8">
 
             <div class="text">
@@ -11,7 +11,7 @@
                             </path>
                         </svg>
                     </div>
-                    <label for="sentinel" class="font-medium text-gray-700">Sentinel</label>
+                    <label for="sentinel" class="font-medium text-gray-700">Treant Horde</label>
                 </div>
             </div>
             <div class="">

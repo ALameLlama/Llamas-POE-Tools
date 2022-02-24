@@ -23,9 +23,9 @@ class TreantHorde extends Component
     public function mount()
     {
         $this->parent = $this->parent . $this->name;
+        $this->owned = Storage::disk('local')->get($this->name) ?? false;
 
         $this->setChildrenRecipes();
-        $this->owned = Storage::disk('local')->get($this->name) ?? false;
     }
 
     public function updateChild($params)

@@ -18,6 +18,7 @@ class Sentinel extends Component
     public function mount()
     {
         $this->owned = Storage::disk('local')->get("{$this->parent}_{$this->name}") ?? false;
+
         $this->updateParent();
     }
 
