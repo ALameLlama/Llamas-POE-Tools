@@ -21,9 +21,8 @@ class Toxic extends Component
 
     public function toggle()
     {
-        $this->owned = abs($this->owned-=1);
+        $this->owned = abs($this->owned -= 1);
 
-        // $this->emitTo('base-recipe', 'refresh');
         $this->updateParent();
         Storage::disk('local')->put("{$this->parent}_{$this->name}", $this->owned);
     }
