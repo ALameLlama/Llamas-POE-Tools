@@ -1,6 +1,6 @@
-<div class="flex flex-col w-80 mr-12">
+<div class="flex flex-col w-80 mr-12" wire:init="getChildBaseRecipes">
     <div class="overflow-x-auto">
-        <div class="shadow overflow-hidden border-b border-gray-200 dark">
+        <div class="shadow overflow-hidden border-b border-gray-200">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-inherit">
                 <tr>
@@ -9,7 +9,6 @@
                 </tr>
                 </thead>
                 <tbody class="bg-inherit divide-y divide-gray-200">
-                {{ json_encode($recipes) }}
                 @foreach($recipes as $recipe => $amount)
                     @if ($amount > 0)
                         <tr>

@@ -26,6 +26,11 @@ class BaseRecipe extends Component
         }
     }
 
+    public function getChildBaseRecipes()
+    {
+        $this->emit('getChildBaseRecipes');
+    }
+
     public function setBaseRecipes($params)
     {
         foreach($params as $component => $status) {
