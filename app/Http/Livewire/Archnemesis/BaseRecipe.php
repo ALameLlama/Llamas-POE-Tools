@@ -10,6 +10,11 @@ class BaseRecipe extends Component
         'sentinel' => 0,
         'toxic' => 0,
         'steel-infused' => 0,
+        'chaosweaver' => 0,
+        'echoist' => 0,
+        'malediction' => 0,
+        'bloodletter' => 0,
+        'gargantuan' => 0,
     ];
 
     protected $listeners = [

@@ -1,4 +1,4 @@
-<div x-data={show:true}>
+<div x-data={show:true} class="border">
     <div class="divide-y divide-gray-200 w-48 {{ $owned ? 'bg-green-400 dark:bg-green-600' : ($childOwned ? 'bg-yellow-400 dark:bg-yellow-600' : 'bg-red-400 dark:bg-red-500')}}">
         <div class="relative flex items-center justify-between mr-2 ml-2 h-8">
 
@@ -25,10 +25,10 @@
                 >
             </div>
         </div>
-    </div>
-    <div x-show="show" x-collapse>
-        @livewire('archnemesis.toxic', ['parent' => $parent])
-        @livewire('archnemesis.steel-infused', ['parent' => $parent])
-        @livewire('archnemesis.sentinel', ['parent' => $parent])
+        <div x-show="show" class="ml-4 border-l-2" x-collapse="">
+            @livewire('archnemesis.toxic', ['parent' => $parent])
+            @livewire('archnemesis.steel-infused', ['parent' => $parent])
+            @livewire('archnemesis.sentinel', ['parent' => $parent])
+        </div>
     </div>
 </div>
