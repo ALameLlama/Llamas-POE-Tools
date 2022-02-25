@@ -26,6 +26,12 @@ class BaseRecipe extends Component
         'deadeye' => 0,
         'hasted' => 0,
         'dynamo' => 0,
+        'bombardier' => 0,
+        'incendiary' => 0,
+        'frenzied' => 0,
+        'bonebreaker' => 0,
+        'soul-conduit' => 0,
+        'consecrator' => 0,
     ];
 
     protected $listeners = [
