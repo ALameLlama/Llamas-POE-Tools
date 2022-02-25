@@ -1,12 +1,13 @@
 <x-app-layout>
     <div class="flex min-w-full justify-between">
-        <div class="w-56">
+        <div class="w-64">
 {{--            @livewire('archnemesis.treant-horde')--}}
 {{--            @livewire('archnemesis.hexer')--}}
 {{--            @livewire('archnemesis.corrupter')--}}
 {{--            @livewire('archnemesis.effigy')--}}
 {{--            @livewire('archnemesis.crystal-skinned')--}}
-            @livewire('archnemesis.brine-king-touched')
+{{--            @livewire('archnemesis.brine-king-touched')--}}
+            @livewire('archnemesis.innocence-touched')
         </div>
 
         <div class="float-right">
