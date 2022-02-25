@@ -15,6 +15,17 @@ class BaseRecipe extends Component
         'malediction' => 0,
         'bloodletter' => 0,
         'gargantuan' => 0,
+        'vampiric' => 0,
+        'permafrost' => 0,
+        'berserker' => 0,
+        'juggernaut' => 0,
+        'arcane-buffer' => 0,
+        'flameweaver' => 0,
+        'frostweaver' => 0,
+        'stormweaver' => 0,
+        'deadeye' => 0,
+        'hasted' => 0,
+        'dynamo' => 0,
     ];
 
     protected $listeners = [
