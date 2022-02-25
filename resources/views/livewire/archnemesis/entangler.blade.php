@@ -26,8 +26,8 @@
             </div>
         </div>
         <div x-show="show" class="ml-4 border-l-2" x-collapse>
-            @livewire('archnemesis.toxic', ['parent' => $parent])
-            @livewire('archnemesis.bloodletter', ['parent' => $parent])
+            @livewire('archnemesis.toxic', ['parent' => $buildParent, 'directParent' => $name])
+            @livewire('archnemesis.bloodletter', ['parent' => $buildParent, 'directParent' => $name])
         </div>
     </div>
 </div>

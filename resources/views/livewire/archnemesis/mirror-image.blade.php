@@ -26,8 +26,8 @@
             </div>
         </div>
         <div x-show="show" class="ml-4 border-l-2" x-collapse>
-            @livewire('archnemesis.echoist', ['parent' => $parent])
-            @livewire('archnemesis.soul-conduit', ['parent' => $parent])
+            @livewire('archnemesis.echoist', ['parent' => $buildParent, 'directParent' => $name])
+            @livewire('archnemesis.soul-conduit', ['parent' => $buildParent, 'directParent' => $name])
         </div>
     </div>
 </div>

@@ -5,12 +5,12 @@ namespace App\Http\Livewire\Archnemesis;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
-class Corrupter extends Component
+class CrystalSkinned extends Component
 {
     public bool $owned = false;
     public bool $childOwned = false;
 
-    public string $name = 'corrupter';
+    public string $name = 'crystal-skinned';
     public string $parent = '';
     public string $directParent = '';
     public string $buildParent = '';
@@ -53,8 +53,9 @@ class Corrupter extends Component
     private function setChildrenRecipes()
     {
         $this->childRecipes = [
-            'bloodletter' => Storage::disk('local')->get("{$this->parent}_{$this->name}_bloodletter") ?? false,
-            'chaosweaver' => Storage::disk('local')->get("{$this->parent}_{$this->name}_chaosweaver") ?? false,
+            'rejuvenating' => Storage::disk('local')->get("{$this->parent}_{$this->name}_rejuvenating") ?? false,
+            'permafrost' => Storage::disk('local')->get("{$this->parent}_{$this->name}_permafrost") ?? false,
+            'berserker' => Storage::disk('local')->get("{$this->parent}_{$this->name}_berserker") ?? false,
         ];
 
         $this->childOwned = !collect($this->childRecipes)->contains(false);
@@ -67,6 +68,6 @@ class Corrupter extends Component
 
     public function render()
     {
-        return view('livewire.archnemesis.corrupter');
+        return view('livewire.archnemesis.crystal-skinned');
     }
 }

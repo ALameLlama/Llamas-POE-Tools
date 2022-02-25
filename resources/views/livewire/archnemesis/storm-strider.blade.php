@@ -26,8 +26,8 @@
             </div>
         </div>
         <div x-show="show" class="ml-4 border-l-2" x-collapse>
-            @livewire('archnemesis.stormweaver', ['parent' => $parent])
-            @livewire('archnemesis.hasted', ['parent' => $parent])
+            @livewire('archnemesis.stormweaver', ['parent' => $buildParent, 'directParent' => $name])
+            @livewire('archnemesis.hasted', ['parent' => $buildParent, 'directParent' => $name])
         </div>
     </div>
 </div>

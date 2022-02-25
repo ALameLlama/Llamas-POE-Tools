@@ -11,11 +11,14 @@ class Frostweaver extends Component
     public string $name = 'frostweaver';
 
     public string $parent = '';
+    public string $directParent = '';
+    public string $buildParent = '';
 
     protected $listeners = ['getChildBaseRecipes' => 'setBaseRecipe'];
 
     public function mount()
     {
+        $this->buildParent = "{$this->parent}_{$this->name}";
         $this->owned = Storage::disk('local')->get("{$this->parent}_{$this->name}") ?? false;
 
         $this->updateParent();
@@ -32,7 +35,7 @@ class Frostweaver extends Component
 
     private function updateParent()
     {
-        $this->emitUp("{$this->parent}Recipe", [$this->name => $this->owned]);
+        $this->emitUp("{$this->directParent}Recipe", [$this->name => $this->owned]);
     }
 
     public function setBaseRecipe()

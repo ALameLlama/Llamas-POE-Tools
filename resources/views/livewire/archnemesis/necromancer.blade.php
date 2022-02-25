@@ -26,8 +26,8 @@
             </div>
         </div>
         <div x-show="show" class="ml-4 border-l-2" x-collapse>
-            @livewire('archnemesis.bombardier', ['parent' => $parent])
-            @livewire('archnemesis.overcharged', ['parent' => $parent])
+            @livewire('archnemesis.bombardier', ['parent' => $buildParent, 'directParent' => $name])
+            @livewire('archnemesis.overcharged', ['parent' => $buildParent, 'directParent' => $name])
         </div>
     </div>
 </div>

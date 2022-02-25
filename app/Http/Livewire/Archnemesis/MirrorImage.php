@@ -12,18 +12,20 @@ class MirrorImage extends Component
 
     public string $name = 'mirror-image';
     public string $parent = '';
+    public string $directParent = '';
+    public string $buildParent = '';
 
     public array $childRecipes = [];
 
     protected function getListeners(): array
     {
-        return ["{$this->parent}Recipe" => 'updateChild'];
+        return ["{$this->name}Recipe" => 'updateChild'];
     }
 
     public function mount()
     {
-        $this->parent = $this->parent . $this->name;
-        $this->owned = Storage::disk('local')->get($this->name) ?? false;
+        $this->buildParent = "{$this->parent}_{$this->name}";
+        $this->owned = Storage::disk('local')->get("{$this->parent}_{$this->name}") ?? false;
 
         $this->updateParent();
         $this->setChildrenRecipes();
@@ -39,20 +41,20 @@ class MirrorImage extends Component
     {
         $this->owned = abs($this->owned -= 1);
 
-        Storage::disk('local')->put($this->name, $this->owned);
+        Storage::disk('local')->put("{$this->parent}_{$this->name}", $this->owned);
         $this->updateParent();
     }
 
     private function updateParent()
     {
-        $this->emitUp("{$this->parent}Recipe", [$this->name => $this->owned]);
+        $this->emitUp("{$this->directParent}Recipe", [$this->name => $this->owned]);
     }
 
     private function setChildrenRecipes()
     {
         $this->childRecipes = [
-            'echoist' => Storage::disk('local')->get("{$this->parent}_echoist") ?? false,
-            'soul-conduit' => Storage::disk('local')->get("{$this->parent}_soul-conduit") ?? false,
+            'echoist' => Storage::disk('local')->get("{$this->parent}_{$this->name}_echoist") ?? false,
+            'soul-conduit' => Storage::disk('local')->get("{$this->parent}_{$this->name}_soul-conduit") ?? false,
         ];
 
         $this->childOwned = !collect($this->childRecipes)->contains(false);

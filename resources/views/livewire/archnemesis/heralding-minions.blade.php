@@ -26,8 +26,8 @@
             </div>
         </div>
         <div x-show="show" class="ml-4 border-l-2" x-collapse>
-            @livewire('archnemesis.dynamo', ['parent' => $parent])
-            @livewire('archnemesis.arcane-buffer', ['parent' => $parent])
+            @livewire('archnemesis.dynamo', ['parent' => $buildParent, 'directParent' => $name])
+            @livewire('archnemesis.arcane-buffer', ['parent' => $buildParent, 'directParent' => $name])
         </div>
     </div>
 </div>

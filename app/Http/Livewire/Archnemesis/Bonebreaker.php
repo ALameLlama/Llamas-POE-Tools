@@ -12,12 +12,15 @@ class Bonebreaker extends Component
     public string $name = 'bonebreaker';
 
     public string $parent = '';
+    public string $directParent = '';
+    public string $buildParent = '';
 
     protected $listeners = ['getChildBaseRecipes' => 'setBaseRecipe'];
 
     public function mount()
     {
-        $this->owned = Storage::disk('local')->get("{$this->parent}_{$this->name}") ?? false;
+        $this->buildParent = "{$this->parent}_{$this->name}";
+        $this->owned = Storage::disk('local')->get("{$this->parent}") ?? false;
 
         $this->updateParent();
     }
@@ -26,14 +29,14 @@ class Bonebreaker extends Component
     {
         $this->owned = abs($this->owned-=1);
 
-        Storage::disk('local')->put("{$this->parent}_{$this->name}", $this->owned);
+        Storage::disk('local')->put("{$this->parent}", $this->owned);
         $this->updateParent();
         $this->updateBaseRecipe();
     }
 
     private function updateParent()
     {
-        $this->emitUp("{$this->parent}Recipe", [$this->name => $this->owned]);
+        $this->emitUp("{$this->directParent}Recipe", [$this->name => $this->owned]);
     }
 
     public function setBaseRecipe()
