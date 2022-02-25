@@ -5,12 +5,12 @@ namespace App\Http\Livewire\Archnemesis;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
-class TreantHorde extends Component
+class Assassin extends Component
 {
     public bool $owned = false;
     public bool $childOwned = false;
 
-    public string $name = 'treant-horde';
+    public string $name = 'assassin';
     public string $parent = '';
 
     public array $childRecipes = [];
@@ -51,9 +51,8 @@ class TreantHorde extends Component
     private function setChildrenRecipes()
     {
         $this->childRecipes = [
-            'toxic' => Storage::disk('local')->get("{$this->parent}_toxic") ?? false,
-            'steel-infused' => Storage::disk('local')->get("{$this->parent}_steel-infused") ?? false,
-            'sentinel' => Storage::disk('local')->get("{$this->parent}_sentinel") ?? false,
+            'deadeye' => Storage::disk('local')->get("{$this->parent}_deadeye") ?? false,
+            'vampiric' => Storage::disk('local')->get("{$this->parent}_vampiric") ?? false,
         ];
 
         $this->childOwned = !collect($this->childRecipes)->contains(false);
@@ -66,6 +65,6 @@ class TreantHorde extends Component
 
     public function render()
     {
-        return view('livewire.archnemesis.treant-horde');
+        return view('livewire.archnemesis.assassin');
     }
 }

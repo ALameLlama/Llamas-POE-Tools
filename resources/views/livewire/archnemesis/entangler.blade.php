@@ -11,13 +11,13 @@
                             </path>
                         </svg>
                     </div>
-                    <label for="treant-horde" class="font-medium text-gray-700">Treant Horde</label>
+                    <label for="entangler" class="font-medium text-gray-700">Entangler</label>
                 </div>
             </div>
             <div class="">
                 <input wire:click="toggle"
-                       id="treant-horde"
-                       aria-describedby="treant-horde-description"
+                       id="entangler"
+                       aria-describedby="entangler-description"
                        name="recipe"
                        type="checkbox"
                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
@@ -27,8 +27,7 @@
         </div>
         <div x-show="show" class="ml-4 border-l-2" x-collapse>
             @livewire('archnemesis.toxic', ['parent' => $parent])
-            @livewire('archnemesis.steel-infused', ['parent' => $parent])
-            @livewire('archnemesis.sentinel', ['parent' => $parent])
+            @livewire('archnemesis.bloodletter', ['parent' => $parent])
         </div>
     </div>
 </div>
