@@ -7,7 +7,9 @@ use Livewire\Component;
 class BaseRecipe extends Component
 {
     public array $recipes = [
-        'sentinel' => 0
+        'sentinel' => 0,
+        'toxic' => 0,
+        'steel-infused' => 0,
     ];
 
     protected $listeners = [
