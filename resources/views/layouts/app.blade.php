@@ -21,6 +21,11 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
+        <link
+                href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css"
+                rel="stylesheet"
+        />
+
         @livewireStyles
     </head>
     <body class="h-full antialiased bg-zinc-50 dark:bg-zinc-800 transition-colors duration-300">

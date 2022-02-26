@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Archnemesis;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
@@ -24,7 +25,7 @@ class DroughtBringer extends Component
     public function mount()
     {
         $this->buildParent = "{$this->parent}_{$this->name}";
-        $this->owned = Storage::disk('local')->get("{$this->parent}_{$this->name}") ?? false;
+        $this->owned = Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}") ?? false;
 
         $this->updateParent();
         $this->setChildrenRecipes();
@@ -40,7 +41,7 @@ class DroughtBringer extends Component
     {
         $this->owned = abs($this->owned -= 1);
 
-        Storage::disk('local')->put("{$this->parent}_{$this->name}", $this->owned);
+        Storage::disk('local')->put(Auth::id() . '/' . "{$this->parent}_{$this->name}", $this->owned);
         $this->updateParent();
     }
 
@@ -52,8 +53,8 @@ class DroughtBringer extends Component
     private function setChildrenRecipes()
     {
         $this->childRecipes = [
-            'malediction' => Storage::disk('local')->get("{$this->parent}_{$this->name}_malediction") ?? false,
-            'deadeye' => Storage::disk('local')->get("{$this->parent}_{$this->name}_deadeye") ?? false,
+            'malediction' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_malediction") ?? false,
+            'deadeye' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_deadeye") ?? false,
         ];
 
         $this->childOwned = !collect($this->childRecipes)->contains(false);

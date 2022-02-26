@@ -38,6 +38,7 @@ class BaseRecipe extends Component
     protected $listeners = [
         'updateBaseRecipe' => 'updateBaseRecipes',
         'setBaseRecipe' => 'setBaseRecipes',
+        'resetBaseRecipe' => 'resetBaseRecipes',
     ];
 
     public function updateBaseRecipes($params)
@@ -54,6 +55,38 @@ class BaseRecipe extends Component
     public function getChildBaseRecipes()
     {
         $this->emit('getChildBaseRecipes');
+    }
+
+    public function resetBaseRecipes()
+    {
+        $this->recipes = [
+            'arcane-buffer' => 0,
+            'berserker' => 0,
+            'bloodletter' => 0,
+            'bombardier' => 0,
+            'bonebreaker' => 0,
+            'chaosweaver' => 0,
+            'consecrator' => 0,
+            'deadeye' => 0,
+            'dynamo' => 0,
+            'echoist' => 0,
+            'flameweaver' => 0,
+            'frenzied' => 0,
+            'frostweaver' => 0,
+            'gargantuan' => 0,
+            'hasted' => 0,
+            'incendiary' => 0,
+            'juggernaut' => 0,
+            'malediction' => 0,
+            'overcharged' => 0,
+            'permafrost' => 0,
+            'sentinel' => 0,
+            'soul-conduit' => 0,
+            'steel-infused' => 0,
+            'stormweaver' => 0,
+            'toxic' => 0,
+            'vampiric' => 0,
+        ];
     }
 
     public function setBaseRecipes($params)

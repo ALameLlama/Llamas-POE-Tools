@@ -1,5 +1,5 @@
-<div x-data={show:true} class="border">
-    <div class="divide-y divide-gray-200 {{ $owned ? 'bg-green-400 dark:bg-green-600' : ($childOwned ? 'bg-yellow-400 dark:bg-orange-400' : 'bg-red-400 dark:bg-red-500')}}">
+<div x-data={show:true}>
+    <div class="divide-y divide-gray-200 {{ $owned ? 'bg-green-400 dark:bg-green-600' : ($childOwned ? 'bg-yellow-400 dark:bg-orange-400' : 'bg-red-400 dark:bg-red-500')}} border">
         <div class="relative flex items-center justify-between mr-2 ml-2 h-8">
 
             <div class="text">

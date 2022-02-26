@@ -1,4 +1,4 @@
-<div class="flex flex-col w-80 mr-12" wire:init="getChildBaseRecipes">
+<div class="flex flex-col w-80" wire:init="getChildBaseRecipes">
     <div class="overflow-x-auto">
         <div class="shadow overflow-hidden border-b border-gray-200">
             <table class="min-w-full divide-y divide-gray-200">

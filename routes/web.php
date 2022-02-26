@@ -14,10 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');;
+})->middleware(['auth'])->name('dashboard');;
 
-Route::get('archnemesis-recipe-tracker', function () {
+Route::get('/archnemesis-recipe-tracker', function () {
     return view('archnemesis-recipe-tracker');
-})->name('archnemesis-recipe-tracker');;
+})->middleware(['auth'])->name('archnemesis-recipe-tracker');;
 
+require __DIR__.'/auth.php';

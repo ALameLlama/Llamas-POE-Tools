@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Archnemesis;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
@@ -26,7 +27,7 @@ class InnocenceTouched extends Component
     public function mount()
     {
         $this->buildParent = "{$this->parent}_{$this->name}";
-        $this->owned = Storage::disk('local')->get("{$this->parent}_{$this->name}") ?? false;
+        $this->owned = Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}") ?? false;
 
         $this->updateParent();
         $this->setChildrenRecipes();
@@ -42,7 +43,7 @@ class InnocenceTouched extends Component
     {
         $this->owned = abs($this->owned -= 1);
 
-        Storage::disk('local')->put("{$this->parent}_{$this->name}", $this->owned);
+        Storage::disk('local')->put(Auth::id() . '/' . "{$this->parent}_{$this->name}", $this->owned);
         $this->updateParent();
     }
 
@@ -54,10 +55,10 @@ class InnocenceTouched extends Component
     private function setChildrenRecipes()
     {
         $this->childRecipes = [
-            'lunaris-touched' => Storage::disk('local')->get("{$this->parent}_{$this->name}_lunaris-touched") ?? false,
-            'solaris-touched' => Storage::disk('local')->get("{$this->parent}_{$this->name}_solaris-touched") ?? false,
-            'mirror-image' => Storage::disk('local')->get("{$this->parent}_{$this->name}_mirror-image") ?? false,
-            'mana-siphoner' => Storage::disk('local')->get("{$this->parent}_{$this->name}_mana-siphoner") ?? false,
+            'lunaris-touched' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_lunaris-touched") ?? false,
+            'solaris-touched' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_solaris-touched") ?? false,
+            'mirror-image' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_mirror-image") ?? false,
+            'mana-siphoner' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_mana-siphoner") ?? false,
         ];
 
         $this->childOwned = !collect($this->childRecipes)->contains(false);

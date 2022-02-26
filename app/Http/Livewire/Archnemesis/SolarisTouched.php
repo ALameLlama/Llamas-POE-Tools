@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Archnemesis;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
@@ -25,7 +26,7 @@ class SolarisTouched extends Component
     public function mount()
     {
         $this->buildParent = "{$this->parent}_{$this->name}";
-        $this->owned = Storage::disk('local')->get("{$this->parent}_{$this->name}") ?? false;
+        $this->owned = Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}") ?? false;
 
         $this->updateParent();
         $this->setChildrenRecipes();
@@ -41,7 +42,7 @@ class SolarisTouched extends Component
     {
         $this->owned = abs($this->owned -= 1);
 
-        Storage::disk('local')->put("{$this->parent}_{$this->name}", $this->owned);
+        Storage::disk('local')->put(Auth::id() . '/' . "{$this->parent}_{$this->name}", $this->owned);
         $this->updateParent();
     }
 
@@ -53,9 +54,9 @@ class SolarisTouched extends Component
     private function setChildrenRecipes()
     {
         $this->childRecipes = [
-            'empowering-minions' => Storage::disk('local')->get("{$this->parent}_{$this->name}_empowering-minions") ?? false,
-            'invulnerable' => Storage::disk('local')->get("{$this->parent}_{$this->name}_invulnerable") ?? false,
-            'magma-barrier' => Storage::disk('local')->get("{$this->parent}_{$this->name}_magma-barrier") ?? false,
+            'empowering-minions' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_empowering-minions") ?? false,
+            'invulnerable' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_invulnerable") ?? false,
+            'magma-barrier' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_magma-barrier") ?? false,
         ];
 
         $this->childOwned = !collect($this->childRecipes)->contains(false);
