@@ -11,7 +11,7 @@ class CorpseDetonater extends Component
     public bool $owned = false;
     public bool $childOwned = false;
 
-    public string $name = 'corpse-detonater';
+    public string $name = 'corpse-detonator';
     public string $parent = '';
     public string $directParent = '';
     public string $buildParent = '';
@@ -68,6 +68,6 @@ class CorpseDetonater extends Component
 
     public function render()
     {
-        return view('livewire.archnemesis.corpse-detonater');
+        return view('livewire.archnemesis.corpse-detonator');
     }
 }

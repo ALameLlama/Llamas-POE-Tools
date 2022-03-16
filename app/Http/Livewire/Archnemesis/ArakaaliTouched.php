@@ -54,7 +54,7 @@ class ArakaaliTouched extends Component
     private function setChildrenRecipes()
     {
         $this->childRecipes = [
-            'corpse-detonater' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_corpse-detonater") ?? false,
+            'corpse-detonator' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_corpse-detonator") ?? false,
             'entangler' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_entangler") ?? false,
             'assassin' => Storage::disk('local')->get(Auth::id() . '/' . "{$this->parent}_{$this->name}_assassin") ?? false,
         ];

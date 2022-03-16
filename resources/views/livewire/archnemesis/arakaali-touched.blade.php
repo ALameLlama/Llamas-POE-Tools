@@ -26,7 +26,7 @@
             </div>
         </div>
         <div x-show="show" class="ml-4 border-l-2" x-collapse>
-            @livewire('archnemesis.corpse-detonater', ['parent' => $buildParent, 'directParent' => $name])
+            @livewire('archnemesis.corpse-detonator', ['parent' => $buildParent, 'directParent' => $name])
             @livewire('archnemesis.entangler', ['parent' => $buildParent, 'directParent' => $name])
             @livewire('archnemesis.assassin', ['parent' => $buildParent, 'directParent' => $name])
         </div>

@@ -17,7 +17,7 @@ class RecipeBoard extends Component
         'kitava-touched' => 'T4',
         'shakari-touched' => 'T4',
         'empowering-minions' => 'T3',
-        'corpse-detonater' => 'T3',
+        'corpse-detonator' => 'T3',
         'abberath-touched' => 'T3',
         'tukohama-touched' => 'T3',
         'soul-eater' => 'T3',

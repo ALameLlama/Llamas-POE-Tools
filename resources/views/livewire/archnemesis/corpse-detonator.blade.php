@@ -11,13 +11,13 @@
                             </path>
                         </svg>
                     </div>
-                    <label for="corpse-detonater" class="font-medium text-gray-700">Corpse detonater</label>
+                    <label for="corpse-detonator" class="font-medium text-gray-700">Corpse detonator</label>
                 </div>
             </div>
             <div class="">
                 <input wire:click="toggle"
-                       id="corpse-detonater"
-                       aria-describedby="corpse-detonater-description"
+                       id="corpse-detonator"
+                       aria-describedby="corpse-detonator-description"
                        name="recipe"
                        type="checkbox"
                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"

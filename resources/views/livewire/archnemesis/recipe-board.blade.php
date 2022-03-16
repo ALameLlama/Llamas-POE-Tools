@@ -93,9 +93,9 @@
             @break
 
             {{-- T3 --}}
-            @case('corpse-detonater')
+            @case('corpse-detonator')
                 <div class="w-64">
-                    @livewire('archnemesis.corpse-detonater')
+                    @livewire('archnemesis.corpse-detonator')
                 </div>
             @break
 
