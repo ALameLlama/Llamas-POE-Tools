@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
-class CorpseDetonater extends Component
+class CorpseDetonator extends Component
 {
     public bool $owned = false;
     public bool $childOwned = false;
