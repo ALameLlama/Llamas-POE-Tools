@@ -27,7 +27,7 @@
         </div>
         <div x-show="show" class="ml-4 border-l-2" x-collapse>
             @livewire('archnemesis.abberath-touched', ['parent' => $buildParent, 'directParent' => $name])
-            @livewire('archnemesis.kitava-touched', ['parent' => $buildParent, 'directParent' => $name])
+            @livewire('archnemesis.corrupter', ['parent' => $buildParent, 'directParent' => $name])
             @livewire('archnemesis.tukohama-touched', ['parent' => $buildParent, 'directParent' => $name])
             @livewire('archnemesis.corpse-detonator', ['parent' => $buildParent, 'directParent' => $name])
         </div>

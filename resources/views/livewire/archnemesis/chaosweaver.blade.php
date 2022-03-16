@@ -2,7 +2,7 @@
     <div class="{{ $owned ? 'bg-green-400 dark:bg-green-600' : 'bg-red-400 dark:bg-red-500' }}">
         <div class="relative flex items-center justify-between mr-2 ml-2 h-8">
             <div class="text">
-                <label for="chaosweaver" class="font-medium text-gray-700">chaosweaver</label>
+                <label for="chaosweaver" class="font-medium text-gray-700">Chaosweaver</label>
             </div>
             <div class="">
                 <input wire:click="toggle"
